@@ -1,3 +1,5 @@
+package examples
+
 // Объявляем generic-функцию
 fun <T> printItem(item: T) {
     println("Элемент: $item (тип: ${item?.javaClass?.simpleName ?: "Unknown"})")

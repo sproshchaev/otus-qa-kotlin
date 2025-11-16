@@ -1,4 +1,4 @@
-
+package basics
 class Rectangle(private val width: Int, private val height: Int) {
 
     val area = {

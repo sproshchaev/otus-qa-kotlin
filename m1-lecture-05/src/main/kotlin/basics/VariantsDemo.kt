@@ -1,6 +1,6 @@
-import javax.sound.sampled.BooleanControl
+package basics
 
-// Animal <- Cat
+// basics.Animal <- basics.Cat
 open class Animal()
 class Cat : Animal()
 
@@ -18,7 +18,7 @@ class Box<T: Animal> (val animal1: T, var animal2: T) {
     }
 }
 
-// convariant Box<Animal> <- Box<Cat>
+// convariant basics.Box<basics.Animal> <- basics.Box<basics.Cat>
 class BoxOut<out T: Animal> (val animal1: T, private var animal2: T) {
     fun getT1(): T {
         return animal1
@@ -33,7 +33,7 @@ class BoxOut<out T: Animal> (val animal1: T, private var animal2: T) {
 //    }
 }
 
-// contrvariant Box<Animal> -> Box<Cat>
+// contrvariant basics.Box<basics.Animal> -> basics.Box<basics.Cat>
 class BoxIn<in T: Animal> (private val animal1: T, private var animal2: T) {
 //    fun getT1(): T {
 //        return animal1

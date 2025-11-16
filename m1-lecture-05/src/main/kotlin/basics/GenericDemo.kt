@@ -1,4 +1,4 @@
-
+package basics
 fun OddListFun(list: List<Any>): List<Any> {
     return list.filterIndexed { i,_ -> i % 2 == 1 }
 }

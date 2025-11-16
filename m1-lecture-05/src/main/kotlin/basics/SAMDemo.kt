@@ -1,3 +1,5 @@
+package basics
+
 import kotlin.concurrent.thread
 
 fun main() {

@@ -1,7 +1,7 @@
-import kotlin.system.measureTimeMillis
+package basics
 
 fun funForTimer(): String {
-    println("funForTimer")
+    println("basics.funForTimer")
     var s = ""
     for (i in 1..100000) {
         s += "s"
@@ -11,7 +11,7 @@ fun funForTimer(): String {
 
 class ClassForTimer {
     fun funForTimer(): String {
-        println("funForTimer")
+        println("basics.funForTimer")
         var s = ""
         for (i in 1..100000) {
             s += "s"
@@ -23,7 +23,7 @@ class ClassForTimer {
 class CompanionForTimer {
     companion object {
         fun funForTimer(): String {
-            println("funForTimer")
+            println("basics.funForTimer")
             var s = ""
             for (i in 1..100000) {
                 s += "s"
@@ -54,11 +54,11 @@ fun demoTimerAlise(funName: String, f:typeForTimer) {
 
 fun main () {
 
-//    demoTimer("fun for timer", ::funForTimer)
-//    demoTimer("class for timer", ClassForTimer()::funForTimer)
-//    demoTimer("companion for timer", CompanionForTimer::funForTimer)
+//    basics.demoTimer("fun for timer", ::basics.funForTimer)
+//    basics.demoTimer("class for timer", basics.ClassForTimer()::basics.funForTimer)
+//    basics.demoTimer("companion for timer", basics.CompanionForTimer::basics.funForTimer)
 //
-//    demoTimerAlise("companion for timer", CompanionForTimer::funForTimer)
+//    basics.demoTimerAlise("companion for timer", basics.CompanionForTimer::basics.funForTimer)
 
     if (true) {
 
@@ -81,7 +81,7 @@ fun main () {
     }
 
 //    val result = measureTimeMillis {
-//        ::funForTimer
+//        ::basics.funForTimer
 //    }
 //    println(result)
 }

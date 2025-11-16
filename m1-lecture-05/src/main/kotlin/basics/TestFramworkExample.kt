@@ -1,3 +1,5 @@
+package basics
+
 fun log(prefix: String, block: () -> String?) {
     val result = block()
     println("[$prefix] " + (result ?: "").trim())
@@ -22,7 +24,7 @@ abstract class OtusTest<T> {
 
 class MyTest : OtusTest<Int>() {
     override fun startUp() {
-        log("MyTest") {
+        log("basics.MyTest") {
             "Test is started"
         }
     }
@@ -52,18 +54,18 @@ class Lesson4 : OtusTestEngine() {
             //get and run all test methods
             for (method in test::class.java.methods) {
                 if (method.name.startsWith("test")) {
-                    log("Lesson4") {
+                    log("basics.Lesson4") {
                         "Running test ${method.name}"
                     }
                     val result = runCatching {
                         method.invoke(test)
                     }
                     if (result.isFailure) {
-                        log("Lesson4") {
+                        log("basics.Lesson4") {
                             "Test execution error: ${result.exceptionOrNull()}"
                         }
                     } else {
-                        log("Lesson4") {
+                        log("basics.Lesson4") {
                             "Test passed OK"
                         }
                     }
