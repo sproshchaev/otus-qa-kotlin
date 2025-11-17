@@ -1,11 +1,29 @@
-// Объявляем generic-функцию
+
+fun printItemInt(item: Int) {
+    println("Элемент: ${item}")
+}
+
+fun printItemStr(item: String) {
+    println("Элемент: ${item}")
+}
+
+fun printItemBool(item: Boolean) {
+    println("Элемент: ${item}")
+}
+
+// generic: <T> = (T)ype
 fun <T> printItem(item: T) {
-    println("Элемент: $item (тип: ${item?.javaClass?.simpleName ?: "Unknown"})")
+    println("Элемент: ${item?.javaClass?.simpleName ?: "Unknown"}")
 }
 
 fun main() {
-    // Используем с разными типами - компилятор сам выводит T
-    printItem(42)        // T выводится как Int
-    printItem("Hello")   // T выводится как String
-    printItem(true)      // T выводится как Boolean
+
+    printItemInt(55)
+    printItemStr("String")
+    printItemBool(true)
+
+    printItem(55)       // T -> Int
+    printItem("String") // T -> String
+    printItem(true)     // T -> Boolean
+
 }
