@@ -49,14 +49,14 @@ class MainTest {
 
     // Пример 1: @Tag - для категоризации тестов
     @Test
-    @Tag("fast") // Метка для быстрых тестов
+    @Tag("fast") // Метка для быстрых тестов. Запустить только быстрые тесты: ./gradlew test --tests "*Test" --include-tag "fast"
     @DisplayName("Быстрый тест - проверка умножения")
     fun fastTestMultiplication() {
         assertEquals(6, 2 * 3, "2 * 3 должно равняться 6")
     }
 
     @Test
-    @Tag("slow") // Метка для медленных тестов (например, интеграционных)
+    @Tag("slow") // Метка для медленных тестов (например, интеграционных). Запустить только медленные: ./gradlew test --tests "*Test" --include-tag "slow"
     @Tag("integration") // Тест может иметь несколько тегов
     @DisplayName("Медленный интеграционный тест")
     fun slowIntegrationTest() {
@@ -64,6 +64,10 @@ class MainTest {
         Thread.sleep(100)
         assertTrue(true, "Долгий тест должен проходить успешно")
     }
+
+    // Запустить тесты без slow-тегов: ./gradlew test --tests "*Test" --exclude-tag "slow"
+
+    // Запустить несколько тегов: ./gradlew test --tests "*Test" --include-tag "fast" --include-tag "stability"
 
     // Пример 2: @RepeatedTest - повторение теста
     @RepeatedTest(
