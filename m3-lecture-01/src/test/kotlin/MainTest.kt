@@ -61,7 +61,7 @@ class MainTest {
     @DisplayName("Медленный интеграционный тест")
     fun slowIntegrationTest() {
         // Имитация долгого выполнения
-        Thread.sleep(100)
+        Thread.sleep(10)
         assertTrue(true, "Долгий тест должен проходить успешно")
     }
 
