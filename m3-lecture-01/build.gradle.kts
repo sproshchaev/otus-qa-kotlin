@@ -14,10 +14,10 @@ dependencies {
     testImplementation(kotlin("test"))
 
     // ЯВНОЕ подключение JUnit 5 Jupiter API (для написания тестов, аннотаций)
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0") // Укажите актуальную версию
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.1") // Проверьте актуальную версию на https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
 
     // Движок для запуска тестов JUnit 5 в среде выполнения (runtime)
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.0.1")
 
     // Опционально: улучшенные ассерты (assertions), например, AssertJ или Kotest
     // testImplementation("org.assertj:assertj-core:3.24.2")
