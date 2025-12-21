@@ -19,3 +19,4 @@ rootProject.name = "otus-qa-kotlin"
 include("m1-lecture-05")
 include("m2-lecture-01")
 include("m2-lecture-01")
+include("ow01-dsl-qa")
