@@ -21,7 +21,8 @@ out/
 .kotlin/
 
 ### Local configuration ###
-*.properties
+gradle.properties
+gradle-wrapper.properties
 !.gradle/gradle-wrapper.properties
 
 ### System files ###
