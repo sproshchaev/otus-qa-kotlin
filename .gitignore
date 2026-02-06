@@ -1,14 +1,14 @@
-### Gradle ###
-.gradle/
-!gradle/wrapper/gradle-wrapper.jar
-gradle-app.setting
-
-### Build outputs ###
+.gradle
 build/
+!gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
 ### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
 .idea/
 *.iws
 *.iml
@@ -18,20 +18,7 @@ out/
 !**/src/test/**/out/
 
 ### Kotlin ###
-.kotlin/
-
-### Local configuration ###
-gradle.properties
-gradle-wrapper.properties
-!.gradle/gradle-wrapper.properties
-
-### System files ###
-.DS_Store
-Thumbs.db
-
-### Logs ###
-*.log
-logs/
+.kotlin
 
 ### Eclipse ###
 .apt_generated
@@ -54,3 +41,6 @@ bin/
 
 ### VS Code ###
 .vscode/
+
+### Mac OS ###
+.DS_Store
