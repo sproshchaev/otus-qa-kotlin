@@ -15,7 +15,7 @@ open class BaseTest {
 
     fun assertTrue(condition: Boolean, message: String = "") {
         if (!condition) {
-            throw TestException("message Условие не выполнено")
+            throw TestException("$message Условие не выполнено")
         }
     }
 
