@@ -1,4 +1,9 @@
-class CalculatorSteps : PageObject() {
+package ru.otus
+
+import net.serenitybdd.core.Serenity
+import net.serenitybdd.annotations.Step
+
+class CalculatorSteps {
 
     private var result: Int = 0
 
@@ -11,6 +16,7 @@ class CalculatorSteps : PageObject() {
     @Step("Пользователь умножает {0} на {1}")
     fun multiply(a: Int, b: Int) {
         result = a * b
+        Serenity.recordReportData().withTitle("Результат умножения").andContents(result.toString())
     }
 
     @Step("Результат должен быть равен {0}")
