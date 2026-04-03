@@ -1,7 +1,7 @@
 package ru.otus
 
 import net.serenitybdd.core.Serenity
-import net.serenitybdd.annotations.Step
+import net.thucydides.core.annotations.Step
 
 class CalculatorSteps {
 
