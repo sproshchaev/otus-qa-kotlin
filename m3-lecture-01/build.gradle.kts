@@ -10,24 +10,28 @@ repositories {
 }
 
 dependencies {
-    // Основная зависимость для Kotlin-тестов (уже включает некоторые базовые аннотации)
+    // Kotlin-обёртка над тестовым фреймворком (для примера 12)
     testImplementation(kotlin("test"))
 
-    // ЯВНОЕ подключение JUnit 5 Jupiter API (для написания тестов, аннотаций)
-    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.1") // Проверьте актуальную версию на https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    // ЯВНОЕ подключение JUnit Jupiter API — то, чем пишем тесты
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.1.2")
 
-    // Параметризованные тесты (добавьте эту строку!)
-    testImplementation("org.junit.jupiter:junit-jupiter-params:6.0.1")
+    // Источники данных для параметризованных тестов
+    testImplementation("org.junit.jupiter:junit-jupiter-params:6.1.2")
 
-    // Движок для запуска тестов JUnit 5 в среде выполнения (runtime)
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.0.1")
-
-    // Опционально: улучшенные ассерты (assertions), например, AssertJ или Kotest
-    // testImplementation("org.assertj:assertj-core:3.24.2")
+    // Движок для запуска тестов в среде выполнения
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.1.2")
 }
 
 tasks.test {
-    useJUnitPlatform() // указывает Gradle использовать JUnit Platform
+    useJUnitPlatform { // указывает Gradle использовать JUnit Platform
+        // Фильтрация по тегам (пример 7): ./gradlew test -DincludeTags=fast
+        System.getProperty("includeTags")?.let { includeTags(it) }
+        System.getProperty("excludeTags")?.let { excludeTags(it) }
+    }
+    testLogging {
+        showStandardStreams = true // вывод println из демо виден в консоли
+    }
 }
 
 kotlin {
