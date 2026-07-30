@@ -26,8 +26,16 @@ dependencies {
 tasks.test {
     useJUnitPlatform { // указывает Gradle использовать JUnit Platform
         // Фильтрация по тегам (пример 7): ./gradlew test -DincludeTags=fast
-        System.getProperty("includeTags")?.let { includeTags(it) }
-        System.getProperty("excludeTags")?.let { excludeTags(it) }
+        val include = System.getProperty("includeTags")
+        val exclude = System.getProperty("excludeTags")
+        include?.let { includeTags(it) }
+        exclude?.let { excludeTags(it) }
+        // По умолчанию исключаем намеренно падающий демо-тест (тег "failing"),
+        // чтобы он не рушил общий ./gradlew build.
+        // Запустить его отдельно: ./gradlew :m3-lecture-01:test -DincludeTags=failing
+        if (include == null && exclude == null) {
+            excludeTags("failing")
+        }
     }
     testLogging {
         showStandardStreams = true // вывод println из демо виден в консоли
